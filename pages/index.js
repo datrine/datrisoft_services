@@ -1,45 +1,46 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Header from "../components/Header";
 
 const Home = () => (
   <div className="container">
     <Head>
-      <title>Create Next App</title>
+      <title>Datrisoft Landing</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-
+<Header/>
     <main>
       <h1 className="title">
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
+        Welcome to <a href="https://datrisoft.com">Datrisoft.com</a>
       </h1>
 
       <p className="description">
-        Get started by editing <code>pages/index.js</code>
+        At Datrisoft, serving you is our pleasure
       </p>
 
       <div className="grid">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
+        <a href="/projects/bookings/new" className="card">
+          <h3>Book A Project &rarr;</h3>
+          <p>Book a project wih us and we will start right away.</p>
         </a>
 
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Learn &rarr;</h3>
+        <a href="/projects" className="card">
+          <h3>View Our Projects &rarr;</h3>
           <p>Learn about Next.js in an interactive course with quizzes!</p>
         </a>
 
         <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
+          href="/our_partners"
           className="card"
         >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
+          <h3>Partners &rarr;</h3>
+          <p>We are a community of open-source developers</p>
         </a>
 
         <a
-          href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="/careers"
           className="card"
         >
-          <h3>Deploy &rarr;</h3>
+          <h3>Careers &rarr;</h3>
           <p>
             Instantly deploy your Next.js site to a public URL with ZEIT Now.
           </p>
@@ -53,7 +54,7 @@ const Home = () => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
+        Powered by <img src="/zeit.svg" alt="Datrisoft" />
       </a>
     </footer>
 
