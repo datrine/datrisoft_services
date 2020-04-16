@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Header from "../components/Header";
-
+import styles from "../public/home.module.css"
 const Home = () => (
   <div className="container">
     <Head>
@@ -9,11 +9,11 @@ const Home = () => (
     </Head>
 <Header/>
     <main>
-      <h1 className="title">
+      <h1 className={styles.welcome}>
         Welcome to <a href="https://datrisoft.com">Datrisoft.com</a>
       </h1>
 
-      <p className="description">
+      <p className={styles.description}>
         At Datrisoft, serving you is our pleasure
       </p>
 

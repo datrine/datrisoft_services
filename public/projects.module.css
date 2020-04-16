@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    font-weight: bold;
+    font-size: 5vw;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 5vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+
+}

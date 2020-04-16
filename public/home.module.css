@@ -1,0 +1,23 @@
+.welcome{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.description{
+    font-size: 20px;
+}
+
+@media screen and (min-width: 350px) {
+    .welcome{
+        font-size: 25px;
+        font-weight: bold;
+    }
+}
+
+
+@media screen and (min-width: 850px) {
+    .welcome{
+        font-size: 60px;
+        font-weight: 900;
+    }
+}
