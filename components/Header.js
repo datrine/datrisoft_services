@@ -14,7 +14,7 @@ const Header = () => (<div>
 //component for expanded view of the collapsible menu
 function Links({ userData, autoCollapseParent }) {
     return (<nav style={{ position: "fixed", top: 0 }}>
-        <ul className="header">
+        <ul className={styles.linkContainer}>
             <li>
                 <Link href='/' >
                     <a className={styles.link} onBlur={(e) => {

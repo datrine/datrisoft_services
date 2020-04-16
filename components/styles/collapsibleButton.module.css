@@ -27,6 +27,15 @@
     z-index: 100;
 }
 
+.linkContainer{
+    
+    list-style: none;
+}
+
 .link{
     text-decoration: none;
+}
+
+.link:hover{
+    color:blue;
 }
