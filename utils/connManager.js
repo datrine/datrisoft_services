@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
-let connectionString="mongodb://localhost:27017/datrisoftdb"
+let connectionString="mongodb+srv://datrine:eOyYez3QmV393j2Z@cluster0-qnpau.mongodb.net/unnamedproject"
+
 
 mongoose.connect(connectionString,
     {useNewUrlParser:true}).catch(console.error);
