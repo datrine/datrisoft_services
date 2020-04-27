@@ -80,13 +80,13 @@ function HOC({ compObjs = [], startComponent, ...props }) {
                 toggleNextBtnDisable={toggleNextBtnDisable} togglePrevBtnDisable={togglePrevBtnDisable}
                 toggleNextBtnShow={toggleNextBtnShow} togglePrevBtnDisable={togglePrevBtnShow} />
             <div className={styles.divBtn} >
-                {(curCompObj.id === 0 || CompToView.name === "OwnerDetails" ||
-                    CompToView.name === "SuccessView") ? null :
+                {(curCompObj.id === 0 || CompToView === OwnerDetails ||
+                    CompToView === SuccessView) ? null :
                     <button className={styles.prevBtn} disabled={prevBtnDisabled}
                         onClick={handlePrev}>Previous</button>}
                 {(curCompObj.curCompObj === components.length - 1 ||
-                    CompToView.name === "OwnerDetails" || CompToView.name === "Review"
-                    || CompToView.name === "SuccessView") ?
+                    CompToView === OwnerDetails || CompToView === Review
+                    || CompToView === SuccessView) ?
                     null : <button className={styles.nextBtn}
                         disabled={nextBtnDisabled} onClick={handleNext}>
                             Next</button>
@@ -161,7 +161,7 @@ function OwnerDetails({ project, handleNext }) {
                                     onChange={handleInputLoginChange} placeholder="Email" type="email" />
                                 <input name="password" className={styles.inputForm} value={loginClient.password}
                                     onChange={handleInputLoginChange} placeholder="Password" type="password" />
-                                <button type="submit">Log in</button>
+                                <button className={styles.submitBtn} type="submit">Log in</button>
                                 <p>Forget password?<button onClick={
                                     e => {
                                         toggleshowRecoveryView(true)
@@ -226,7 +226,7 @@ function OwnerDetails({ project, handleNext }) {
                         <h4 style={{ textAlign: "center" }}>Log in</h4>
                         <input name="email" className={styles.inputForm} value={loginClient.email}
                             onChange={handleInputRecoveryChange} placeholder="Email" type="email" />
-                        <button type="submit">Recover Password</button>
+                        <button className={styles.submitBtn} type="submit">Recover Password</button>
                         <p><button onClick={
                             e => {
                                 toggleshowRecoveryView(false)
@@ -243,7 +243,7 @@ function OwnerDetails({ project, handleNext }) {
             }
         }
         else {
-            return <div><p>Your account has be created.</p>
+            return <div><p>Your account has been created.</p>
                 <button onClick={handleNext}>Continue</button></div>
         }
     }
