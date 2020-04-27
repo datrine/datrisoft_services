@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import styles from '../public/projects.module.css'
+import Header from "../../components/Header";
+import styles from '../../public/projects.module.css'
 import Link from 'next/link'
 
 const Project = () => (<div>
