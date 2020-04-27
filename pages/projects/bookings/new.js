@@ -92,18 +92,18 @@ function HOC({ compObjs = [], startComponent, ...props }) {
                             Next</button>
                 }
 
-                {CompToView.name === "Review" ? <button className={styles.saveBtn} onClick={(e) => {
+                {CompToView === Review ? <button className={styles.saveBtn} onClick={(e) => {
                     //
                     saveProject({ project }).then(savedProject => {
                         let nextCompObj =
                             components.find((compObj) =>
-                                compObj.Component.name === "SuccessView")
+                                compObj.Component === SuccessView)
                         console.log(nextCompObj)
                         updateCurCompObj(nextCompObj)
                     }).catch(err => {
                         let nextCompObj =
                             components.find((compObj) =>
-                                compObj.Component.name === "FailureView")
+                                compObj.Component === FailureView)
                         console.log(nextCompObj)
                         updateCurCompObj(nextCompObj)
                     })
