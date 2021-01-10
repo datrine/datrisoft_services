@@ -24,7 +24,6 @@
     "jodit-react": "^1.0.42",
     "moment": "^2.24.0",
     "mongoose": "^5.9.7",
-    "next": "^9.3.4",
     "nodemailer": "^6.4.17",
     "cron": "^1.8.2",
     "express": "^4.17.1",
