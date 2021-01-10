@@ -10,7 +10,7 @@ const Home = () => (
     <Header />
     <main className={styles.main}>
       <h1 className={styles.welcome}>
-        Welcome to <a href="https://datrisoft.com">Datrisoft.com</a>
+        Welcome to <a href="https://datrisoft.com">Datrisoft.com Services</a>
       </h1>
       <p className={styles.description}>
         Datrisoft... Tech for the future...
