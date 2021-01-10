@@ -6,7 +6,7 @@ app.use(express.json())
 let emailRouter=require("./services/email")
 
 app.use("/email/",emailRouter)
-
+console.log("Loaded..")
 app.listen(5000,()=>{
     console.log("Listening...")
 })
