@@ -5,13 +5,13 @@ let emailRouter = require("./services/email")
 app.use(cors())
 app.use(express.json())
 
-app.post("/testing/", (req, res, next) => {
+app.post("/api/testing/", (req, res, next) => {
     res.json({ send: true })
 })
-app.get("/testing/", (req, res, next) => {
+app.get("api/testing/", (req, res, next) => {
     res.json({ send: true })
 })
-app.use("/email/", emailRouter)
+app.use("/api/email/", emailRouter)
 
 app.post("/", (req, res, next) => {
     res.json({ served: "ygyugyg" });
