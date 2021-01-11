@@ -6,7 +6,7 @@ app.use(express.json())
 let emailRouter=require("./services/email")
 
 app.use("/",(req,res,next)=>{
-res.send("<p>Services...</p>");
+res.send("<p>Services for <a href='https://www.datrisoft.com'>Datrisoft</a>...</p>");
 })
 app.use("/email/",emailRouter)
 console.log("Loaded..")
