@@ -8,7 +8,7 @@ app.use(express.json())
 app.post("/api/testing/", (req, res, next) => {
     res.json({ send: true })
 })
-app.get("api/testing/", (req, res, next) => {
+app.get("/api/testing/", (req, res, next) => {
     res.json({ send: true })
 })
 app.use("/api/email/", emailRouter)
