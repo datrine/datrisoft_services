@@ -1,9 +1,9 @@
 let express = require("express");
 let app = express()
 let cors = require("cors")
-app.use(express.json())
 let emailRouter = require("./services/email")
 app.use(cors())
+app.use(express.json())
 
 app.post("/testing/", (req, res, next) => {
     res.json({ send: true })
