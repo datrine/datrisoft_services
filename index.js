@@ -6,10 +6,10 @@ let emailRouter = require("./services/email")
 app.use(cors())
 app.use(express.json())
 
-app.post("/api/testing/", (req, res, next) => {
+app.post("/testing/", (req, res, next) => {
     res.json({ send: true })
 })
-app.get("/api/testing/", (req, res, next) => {
+app.get("/testing/", (req, res, next) => {
     res.json({ send: true })
 })
 app.use("/api/email/", emailRouter)
