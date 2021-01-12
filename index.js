@@ -24,6 +24,6 @@ app.get("/", (req, res, next) => {
     next()
 })
 console.log("Loaded...")
-app.listen(5000, () => {
+app.listen(() => {
     console.log("Listening...")
 })
