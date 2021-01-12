@@ -10,9 +10,9 @@ app.post("/testing/", (req, res, next) => {
     res.json({ send: true })
 })
 app.get("/testing/", (req, res, next) => {
-    res.json({ send: true })
+    res.json({ send: true });
 })
-app.use("/api/email/", emailRouter)
+app.use("/api/email/", emailRouter);
 
 app.post("/", (req, res, next) => {
     res.json({ served: "ygyugyg" });
