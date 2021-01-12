@@ -1,5 +1,6 @@
 let express = require("express");
 let app = express()
+const PORT=process.env.PORT || 6000
 let cors = require("cors")
 let emailRouter = require("./services/email")
 
@@ -24,6 +25,6 @@ app.get("/", (req, res, next) => {
     next()
 })
 console.log("Loaded...")
-app.listen(() => {
-    console.log("Listening...")
+app.listen(PORT,() => {
+    console.log("Listening..."+PORT)
 })
