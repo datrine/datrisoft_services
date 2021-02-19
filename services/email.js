@@ -6,20 +6,23 @@ router.post("/send/", (req, res, next) => {
         return;
     }
     console.log(req.body)
-    let{from,to,text,html,pass,user,host,port}=req.body;
-    let transport = nodemailer.createTransport({host,port,auth:{user,pass}});
+    let { from, to, text, html, pass, user, host, port, subject } = req.body;
+    let transport = nodemailer.createTransport({
+        host, port, auth: { user, pass },
+        secure: true
+    });
     transport.sendMail({
         from,
         to,
-        text,html
+        text, html, subject
     }, (err, info) => {
         if (err) {
             console.log(err)
-            return res.json({err});
+            return res.json({ err });
         }
         if (info) {
             console.log(info)
-            return res.json({info});
+            return res.json({ info });
         }
     })
 })

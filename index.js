@@ -1,18 +1,17 @@
+
 let express = require("express");
 let app = express()
+
 const PORT=process.env.PORT || 6000
 let cors = require("cors")
+
 let emailRouter = require("./services/email")
+
+require("./services/chat")
 
 app.use(cors())
 app.use(express.json())
 
-app.post("/testing/", (req, res, next) => {
-    res.json({ send: true })
-})
-app.get("/testing/", (req, res, next) => {
-    res.json({ send: true });
-})
 app.use("/api/email/", emailRouter);
 
 app.post("/", (req, res, next) => {

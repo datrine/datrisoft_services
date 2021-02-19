@@ -1,0 +1,7 @@
+{"typeAcquisition": {
+    "include": ["jquery","@types"]
+  },
+    "files": [
+        "./node_modules/@types/socket.io/index.d.ts",
+    ]
+}
