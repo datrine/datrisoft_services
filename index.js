@@ -19,8 +19,8 @@ app.get("/", (req, res, next) => {
     res.send("<p>Services for <a href='https://www.datrisoft.com'>Datrisoft</a>...</p>");
     next()
 })
-console.log(process.env.NODE_ENV)
-let server=app.listen(process.env.NODE_ENV==="production"? 80:5000,() => {
+console.log(process.env.PORT)
+let server = app.listen(process.env.NODE_ENV === "production" ? process.env.PORT : 5000, () => {
     console.log("Listening...")
 })
 
