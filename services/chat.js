@@ -1,17 +1,28 @@
+const { Server,Socket } = require("socket.io")
+function startSocket(server) {
+const {port:PORT} = server.address()
+console.log("Socket io port is..." + PORT)
+    const io = new Server(server, {
+        cors: {
+            origin: "*",
+            methods: ["GET", "POST"],
 
-const { Server, } = require("socket.io")
-const io = new Server(7000, {
-    cors: {
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"],
+        }
+    });
 
-    }
-});
+    io.on("connection", 
+    /**
+     * @param {Socket} socket
+     */
+    (socket) => {
+        console.log("Connected...")
+        console.log(socket.handshake.query.serviceId)
+        socket.on("hello",({sender})=>{
+            console.log(sender)
+        })
+        io.emit("welcome","client")
+    });
 
-io.on("connection", (socket) => {
-    console.log("Connected")
-    socket.join(socket.handshake.query.serviceId)
-});
-
-
+}
+module.exports = { startSocket }
 
