@@ -1,5 +1,5 @@
 let generalTemplate = {
-    reciepient_id: "myspace4you",
+    recipient_id: "myspace4you",
     type_of_receiver: "client",
     type_of_msg: "text",
     msg: "",

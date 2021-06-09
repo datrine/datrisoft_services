@@ -25,7 +25,12 @@ let connManager = async () => {
     if (!nuntius) {
         state.setCurrent(state.initial);
         let prom = await getCloudantDB("nuntius");
-
+        const indexDef = {
+            index: { fields: ['recipient_id'] },
+            name: 'recipientId'
+        };
+        //const res = await prom.createIndex(indexDef)
+        //console.log(res);
         state.setCurrent(state.connected)
         //console.log(await prom.info())
         return { db: prom, connState: state.current }
@@ -52,8 +57,12 @@ let storedMsgModel = [model]
  * @returns {Promise< nano.DocumentInsertResponse>}
  */
 async function saveMsg(doc, id) {
-    let res = await (await connection).db.insert(doc, id)
-    return res;
+    try {
+        let res = await (await connection).db.insert(doc, id)
+        return res;
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 
@@ -87,15 +96,37 @@ async function getMsg(id) {
  * @param {{limit:number,skip:number ,bookmark:string}} opts 
  * @returns {Promise<nano.MangoResponse<any>>}
  */
-async function getManyMsgs(client_id, opts) {
+async function getManyMsgs(client_id, opts = {}) {
+    console.log("opts in getManyMsgs...")
+    console.log(opts)
+    console.log("opts in getManyMsgs...")
+    let { lastId, lastTimeReadISO, ...restOf } = opts
     let res = await (await connection).db
-        .find({ selector: { "reciepient_id": client_id, }, ...opts })
-    /**
-     * @type {nano.MangoResponse<any>}
-     */
-    let storedMsgMeta = res.docs
-    
-    return storedMsgMeta;
+        .find({
+            selector: {
+                "recipient_id": client_id,
+            }, ...restOf,
+            sort: [
+                {
+                    "time_stamp_server_received": "asc"
+                }
+            ],
+        });
+    if (res.docs.length>0) {
+        console.log("Doc count: " + res.docs.length);
+        console.log("Leading id: " + res.docs[0]._id);
+        let docs = [...res.docs].reverse()
+        res.docs = docs
+        docs.map(item => console.log(item._id))
+        /**
+         * @type {nano.MangoResponse<any>}
+         */
+        let storedMsgMeta = res
+        return storedMsgMeta;
+    }else{
+        console.log("Doc count is zero.");
+        return []
+    }
 }
 
 
