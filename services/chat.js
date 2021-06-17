@@ -8,8 +8,8 @@ function startSocket(server) {
         cors: {
             origin: "*",
             methods: ["GET", "POST"],
-
-        }
+        },
+        path:"/socket.io"
     });
 
     io.on("connection",

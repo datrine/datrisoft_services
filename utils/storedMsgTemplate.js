@@ -100,7 +100,7 @@ async function getManyMsgs(client_id, opts = {}) {
     console.log("opts in getManyMsgs...")
     console.log(opts)
     console.log("opts in getManyMsgs...")
-    let { lastId, lastTimeReadISO, ...restOf } = opts
+    let { earliestId, earliestTimeReadISO, ...restOf } = opts
     let res = await (await connection).db
         .find({
             selector: {

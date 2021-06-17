@@ -5,7 +5,6 @@ router.post("/send/", (req, res, next) => {
     if (!req.body) {
         return;
     }
-    console.log(req.body)
     let { from, to, text, html, pass, user, host, port, subject } = req.body;
     let transport = nodemailer.createTransport({
         host, port, auth: { user, pass },

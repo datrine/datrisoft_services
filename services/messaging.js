@@ -1,5 +1,5 @@
 const { Server, Socket } = require("socket.io")
-const { myCache } = require("../utils/cache");
+const { myCache } = require("../utils/cache/index");
 const { clientChatTemplate, serverMeta } = require("../utils/socket_template");
 const { nanoid } = require("nanoid");
 
@@ -42,8 +42,11 @@ function messagingSocket(httpServer) {
                 let sockets = await io.in(data.recipient_id).fetchSockets();
                 console.log("Sockets to send to: " + sockets.length);
                 for (const sck of sockets) {
-                    sck.emit("client_msg", msgObj, (ack) => {
-                        console.log(ack);
+                    sck.emit("client_msg", msgObj, (ackObj) => {
+                        if (ackObj.mode==="sync") {
+                            
+                        }
+                        console.log(ackObj);
                         console.log(data);
                         console.log("socket count for " + data.recipient_id + " : " + sockets.length)
                     });
