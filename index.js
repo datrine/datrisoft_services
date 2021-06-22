@@ -21,9 +21,7 @@ app.use("/api/email/", emailRouter);
 
 //require("./services/chat").startSocket(server)
 let messager = require("./services/messaging")
-app.use("/socket/", (req, res, next) => {
-    messager.messagingSocket(server)
-});
+    messager.messagingSocket(server);
 
 app.post("/", (req, res, next) => {
     res.json({ served: "ygyugyg" });

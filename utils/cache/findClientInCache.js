@@ -13,7 +13,6 @@ let { myCache, cacheSettings, dbFns } = require("./index");
  */
 async function findClientInCache(client_id, opts = {}) {
     try {
-
         let { earliestId = "", earliestTimeReadISO = "", latestId = "", latestTimeReadISO = "",
             limit = 2, } = opts;
         let { msgMaxCapacity } = cacheSettings;
@@ -21,6 +20,7 @@ async function findClientInCache(client_id, opts = {}) {
         if (!Number.isInteger(arrayPos)) {
             return null
         }
+        console.log("itemToReturn")
         let itemInCache = myCache.backUpChats[arrayPos];
         let itemToReturn;
         let docs = itemInCache.docs

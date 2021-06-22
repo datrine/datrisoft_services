@@ -118,11 +118,13 @@ async function primeClient(client_id, opts = {}) {
 }
 
 async function manageClientCache(client_id, opts) {
-    let {clientCache} = await findClientInCache(client_id, opts);
-    
-    if (!clientCache) {
+    let response = await findClientInCache(client_id, opts);
+
+    if (!response) {
         return null
     }
+    let {clientCache} = response;
+    
     //if docs in cache is less than capacity
     if (clientCache.docs.length < msgMaxCapacity) {
         try {

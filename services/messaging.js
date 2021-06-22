@@ -17,7 +17,7 @@ function messagingSocket(httpServer) {
             origin: "*",
             methods: ["GET", "POST"],
         },
-        path: "/"
+        path: "/chats"
     });
 
     /**
@@ -66,9 +66,6 @@ function messagingSocket(httpServer) {
         socket.on("fetch_backlog", (fetchDirectives, ack) => {
             console.log(socket.handshake.auth);
             let room_id = socket.handshake.auth.room_id
-            // console.log("Fetching backlog");
-            // console.log(fetchDirectives)
-            // processBacklog(room_id, { ...fetchDirectives })
         });
     }
 
